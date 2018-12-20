@@ -14,7 +14,7 @@ package:
 #   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1000
   skip: True  # [win]
   script:
     - curl http://archive.lbzip2.org/lbzip2-{{ version }}.tar.bz2 -o lbzip2-{{ version }}.tar.bz2
