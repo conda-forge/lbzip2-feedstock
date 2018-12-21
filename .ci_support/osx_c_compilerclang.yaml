@@ -4,12 +4,12 @@ build_number_decrement:
 - '0'
 bzip2:
 - '1'
+c_compiler:
+- clang
 channel_sources:
-- conda-forge,defaults
+- conda-forge/label/gcc7,defaults
 channel_targets:
-- conda-forge main
-docker_image:
-- condaforge/linux-anvil
+- conda-forge gcc7
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
@@ -18,6 +18,7 @@ pin_run_as_build:
   bzip2:
     max_pin: x
 zip_keys:
-- - channel_sources
+- - c_compiler
+  - channel_sources
   - channel_targets
   - build_number_decrement
