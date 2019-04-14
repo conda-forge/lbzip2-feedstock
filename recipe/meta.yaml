@@ -11,11 +11,6 @@ source:
 build:
   number: 1
   skip: True  # [win]
-  script:
-    - ./configure --prefix=$PREFIX
-    - make -j${CPU_COUNT}
-    - make check
-    - make install
 
 requirements:
   build:
