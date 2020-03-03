@@ -1,34 +1,20 @@
-{% set name = "lbzip2" %}
 {% set version = "2.5" %}
-{% set sha256 = "eec4ff08376090494fa3710649b73e5412c3687b4b9b758c93f73aa7be27555b" %}
 
 package:
-  name: {{ name }}
+  name: lbzip2
   version: {{ version }}
 
-# UNCOMMENT AFTER THIS ISSUE IS SOLVED:
-# https://github.com/conda-forge/docker-images/pull/36
-# source:
-#   fn: lbzip2-{{ version }}.tar.bz2
-#   url: http://archive.lbzip2.org/lbzip2-{{ version }}.tar.bz2
-#   sha256: {{ sha256 }}
+source:
+  url: http://archive.lbzip2.org/lbzip2-{{ version }}.tar.bz2
+  sha256: eec4ff08376090494fa3710649b73e5412c3687b4b9b758c93f73aa7be27555b
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
-  script:
-    - curl http://archive.lbzip2.org/lbzip2-{{ version }}.tar.bz2 -o lbzip2-{{ version }}.tar.bz2
-    - openssl sha256 lbzip2-{{ version }}.tar.bz2 | grep {{ sha256 }}
-    - tar xjvf lbzip2-{{ version }}.tar.bz2 --no-same-owner
-    - cd lbzip2-{{ version }}
-    - ./configure --prefix=$PREFIX
-    - make -j${CPU_COUNT}
-    - make check
-    - make install
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
 
 test:
   requires:
@@ -38,8 +24,8 @@ test:
 
 about:
   home: http://lbzip2.org
-  license: GPLv3
-  license_file: lbzip2-{{ version }}/COPYING
+  license: GPL-3.0
+  license_file: COPYING
   summary: lbzip2 is a free, multi-threaded compression utility with support for bzip2 compressed file format
 
 extra:
