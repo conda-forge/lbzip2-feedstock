@@ -21,11 +21,9 @@ build:
 
 requirements:
   build:
-    - glib-tools
     - automake
     - libtool
     - m4
-    - tar
     - make
     - {{ compiler('c') }} 
     - {{ stdlib('c') }}
