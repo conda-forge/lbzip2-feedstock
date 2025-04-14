@@ -32,7 +32,7 @@ requirements:
 
 test:
   commands:
-    - lbzip2 --version || grep {{ version }}
+    - lbzip2 --version | grep {{ version }}
 
 about:
   home: http://lbzip2.org
