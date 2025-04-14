@@ -28,8 +28,7 @@ build:
 
 requirements:
   build:
-    - autotools
-    - openssl
+    - automake
     - tar
     - make
     - {{ compiler('c') }} 
