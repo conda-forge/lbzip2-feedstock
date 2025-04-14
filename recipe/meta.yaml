@@ -24,7 +24,7 @@ requirements:
     - glib-tools
     - automake
     - libtool
-    - m4x
+    - m4
     - tar
     - make
     - {{ compiler('c') }} 
