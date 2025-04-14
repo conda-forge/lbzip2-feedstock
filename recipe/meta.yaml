@@ -23,12 +23,13 @@ build:
     - cd lbzip2-{{ version }}
     - ./configure --prefix=$PREFIX
     - make -j${CPU_COUNT}
-    - make check
+    - make check         # [build_platform == target_platform]
     - make install
 
 requirements:
   build:
-    - toolchain
+    - compiler('c')
+    - stdlib('c')
 
 test:
   requires:
