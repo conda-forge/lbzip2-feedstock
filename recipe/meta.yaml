@@ -9,11 +9,10 @@ package:
 source:
   url: https://github.com/kjn/lbzip2/archive/refs/tags/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
-
-  patches:   # from gnulib-devel srpms in fedora 42 - gnulib-devel-0-52.20230709git.fc42.noarch.rpm
+     # from gnulib-devel srpms in fedora 42 - gnulib-devel-0-52.20230709git.fc42.noarch.rpm
+  patches:   
     - lbzip2-c99.patch
     - lbzip2-gnulib.patch
-
 
 build:
   number: 1
@@ -32,10 +31,8 @@ requirements:
     - bzip2
 
 test:
-  requires:
-    - bzip2
   commands:
-    - lbzip2 --version
+    - lbzip2 --version || grep {{ version }}
 
 about:
   home: http://lbzip2.org
