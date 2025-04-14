@@ -20,6 +20,7 @@ build:
   number: 0
   skip: True  # [win]
   script:
+    - autoconf
     - ./configure --prefix=$PREFIX
     - make -j${CPU_COUNT}
     - make check         # [build_platform == target_platform]
@@ -27,6 +28,7 @@ build:
 
 requirements:
   build:
+    - autotools
     - openssl
     - tar
     - make
