@@ -1,6 +1,6 @@
 {% set name = "lbzip2" %}
 {% set version = "2.5" %}
-{% set sha256 = "eec4ff08376090494fa3710649b73e5412c3687b4b9b758c93f73aa7be27555b" %}
+{% set sha256 = "7be69ece83ecdc8f12b9201d838eee5cdb499f2fd68cffd2af58866076ccac43" %}
 
 package:
   name: {{ name }}
@@ -13,14 +13,13 @@ package:
 #   url: http://archive.lbzip2.org/lbzip2-{{ version }}.tar.bz2
 #   sha256: {{ sha256 }}
 
+source:
+  url: https://github.com/kjn/lbzip2/archive/refs/tags/v{{ version }}.tar.gz
+
 build:
   number: 0
   skip: True  # [win]
   script:
-    - curl http://archive.lbzip2.org/lbzip2-{{ version }}.tar.bz2 -o lbzip2-{{ version }}.tar.bz2
-    - openssl sha256 lbzip2-{{ version }}.tar.bz2 | grep {{ sha256 }}
-    - tar xjvf lbzip2-{{ version }}.tar.bz2 --no-same-owner
-    - cd lbzip2-{{ version }}
     - ./configure --prefix=$PREFIX
     - make -j${CPU_COUNT}
     - make check         # [build_platform == target_platform]
@@ -28,6 +27,9 @@ build:
 
 requirements:
   build:
+    - openssl
+    - tar
+    - make
     - {{ compiler('c') }} 
     - {{ stdlib('c') }}
 
