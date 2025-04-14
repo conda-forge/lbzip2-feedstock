@@ -6,29 +6,25 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-# UNCOMMENT AFTER THIS ISSUE IS SOLVED:
-# https://github.com/conda-forge/docker-images/pull/36
-# source:
-#   fn: lbzip2-{{ version }}.tar.bz2
-#   url: http://archive.lbzip2.org/lbzip2-{{ version }}.tar.bz2
-#   sha256: {{ sha256 }}
-
 source:
   url: https://github.com/kjn/lbzip2/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+  patches:   # from gnulib-devel srpms in fedora 42 - gnulib-devel-0-52.20230709git.fc42.noarch.rpm
+    - lbzip2-c99.patch
+    - lbzip2-gnulib.patch
+
 
 build:
   number: 0
   skip: True  # [win]
-  script:
-    - autoconf
-    - ./configure --prefix=$PREFIX
-    - make -j${CPU_COUNT}
-    - make check         # [build_platform == target_platform]
-    - make install
 
 requirements:
   build:
+    - glib-tools
     - automake
+    - libtool
+    - m4x
     - tar
     - make
     - {{ compiler('c') }} 
