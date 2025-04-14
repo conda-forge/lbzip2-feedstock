@@ -16,8 +16,8 @@ source:
 
 
 build:
-  number: 0
-  skip: True  # [win]
+  number: 1
+  skip: true  # [win]
 
 requirements:
   build:
@@ -30,6 +30,8 @@ requirements:
     - {{ compiler('c') }} 
     - {{ stdlib('c') }}
     - wget
+  run:
+    - bzip2
 
 test:
   requires:
