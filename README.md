@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lbzip2-feedstoc
 
 Home: http://lbzip2.org
 
-Package license: GPLv3
+Package license: GPL-3.0-or-later
 
 Summary: lbzip2 is a free, multi-threaded compression utility with support for bzip2 compressed file format
 
@@ -183,5 +183,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@dslarm](https://github.com/dslarm/)
 * [@gqmelo](https://github.com/gqmelo/)
 
