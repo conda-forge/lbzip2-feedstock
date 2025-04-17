@@ -20,7 +20,7 @@ export PATH=${PATH}:${PWD}/gnulib-1.0
 build-aux/autogen.sh
 ./configure --prefix=$PREFIX
 make -j${CPU_COUNT} 
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "1" ]]; then
-    make check         # [build_platform == target_platform]
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+    make check
 fi
 make install
