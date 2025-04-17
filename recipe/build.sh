@@ -12,10 +12,8 @@
 #   rather than being a library that gets built, installed, and linked against. Thus, there is no
 #   distribution tarball; the idea is to copy files from Gnulib into your own source tree.
 
-wget https://github.com/coreutils/gnulib/archive/refs/tags/v1.0.tar.gz
-tar xvf v1.0.tar.gz
 
-export PATH=${PATH}:${PWD}/gnulib-1.0
+export PATH=${PATH}:${PWD}/gnulib
 
 build-aux/autogen.sh
 ./configure --prefix=$PREFIX
