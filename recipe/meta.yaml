@@ -13,6 +13,9 @@ source:
     patches:   
       - lbzip2-c99.patch
       - lbzip2-gnulib.patch
+
+     # per lbzip2's build instructions (and as used in distro rpm specs)
+     # gnulib-tool is necessary to generate the configure and Makefile.in
   - url: https://github.com/coreutils/gnulib/archive/refs/tags/v1.0.tar.gz
     folder: gnulib
     sha256: c3585637eeab2268400f26a7174862d72c416e9476a0ff4ec12ebce646a0f477
