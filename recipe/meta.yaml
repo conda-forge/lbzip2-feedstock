@@ -18,8 +18,8 @@ source:
   # gnulib-tool is necessary to generate the configure and Makefile.in
   # https://www.gnu.org/software/gnulib/
   - url: https://github.com/coreutils/gnulib/archive/refs/tags/v1.0.tar.gz
-    folder: gnulib sha256:
-      c3585637eeab2268400f26a7174862d72c416e9476a0ff4ec12ebce646a0f477
+    folder: gnulib
+    sha256: c3585637eeab2268400f26a7174862d72c416e9476a0ff4ec12ebce646a0f477
 
 
 build:
