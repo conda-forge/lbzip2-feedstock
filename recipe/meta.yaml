@@ -4,7 +4,7 @@
 
 package:
   name: {{ name }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   - url: https://github.com/kjn/lbzip2/archive/refs/tags/v{{ version }}.tar.gz
@@ -32,6 +32,7 @@ requirements:
     - libtool
     - m4
     - make
+    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - wget
@@ -39,6 +40,8 @@ requirements:
     - bzip2
 
 test:
+  requires:
+    - util-linux
   commands:
     - lbzip2 --version | grep {{ version }}
 
