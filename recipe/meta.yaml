@@ -32,6 +32,7 @@ requirements:
     - libtool
     - m4
     - make
+    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - wget
